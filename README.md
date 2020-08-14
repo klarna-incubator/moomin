@@ -29,7 +29,7 @@ On the server side, you can use JSX to define your views.
 
 ```tsx
 import express from 'express';
-import { serialize } from 'moomin-server'
+import { React, Text } from 'moomin-server'
 
 const MyPageContent = () => (
   <Text>Hello World</Text>
@@ -38,12 +38,11 @@ const MyPageContent = () => (
 const app = express()
 
 app.get('/views/my-page', function (req, res) {
-  const json = serialize(<MyPageContent />)
-  res.send(json)
+  res.send(<MyPageContent />)
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.listen(3000, () => {
+  console.log(`Example app listening at http://localhost:${3000}`)
 })
 ```
 
