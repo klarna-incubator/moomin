@@ -1,47 +1,59 @@
-# Project Name
-> Short blurb about what your project does.
+# Moomin
+> Server side rendering for React Native mobile apps.
 
 [![Build Status][ci-image]][ci-url]
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
 
+> TODO: rewrite this part
 
-One to two paragraph statement about your project and what it does.
-
-## First steps
-
-<details>
- <summary>Installation (for Admins)</summary>
-  
-  Currently, new repositories can be created only by a Klarna Open Source community lead. Please reach out to us if you need assistance.
-  
-  1. Create a new repository by clicking ‘Use this template’ button.
-  
-  2. Make sure your newly created repository is private.
-  
-  3. Enable Dependabot alerts in your candidate repo settings under Security & analysis. You need to enable ‘Allow GitHub to perform read-only analysis of this repository’ first.
-</details>
-
-1. Update `README.md` and `CHANGELOG.md`.
-
-2. Optionally, change `.github/CONTRIBUTING.md`.
-
-3. Do *not* edit `LICENSE`, `.github/CODE_OF_CONDUCT.md`, and `.github/SECURITY.md`.
+Moomin allows parts of your React Native app to de loaded from your server. This makes pushing updates, fixing bugs or running A/B tests as simple as making changes to a web app rendered on the server. It also supports:
+ - Make apps extendable by safely embedding native UI from third party plugins.
+ - Develop apps by teams distributed across multiple organizations, or make it decentralized.
 
 ## Usage example
 
-A few motivating and useful examples of how your project can be used. Spice this up with code blocks and potentially more screenshots.
+Loading a view from the server is as simple as adding a component on your client. Moomin will fetch the view definition from the given source URL and render it on the client.
+
+```tsx
+import { Moomin } from 'moomin-client'
+
+// ! client
+const MyPage = () => (
+  <Title>My Page Title</Title>
+  <Moomin src="http://myapp.app/views/my-page" />
+)
+```
+
+On the server side, you can use JSX to define your views.
+
+```tsx
+import express from 'express';
+import { serialize } from 'moomin-server'
+
+const MyPageContent = () => (
+  <Text>Hello World</Text>
+)
+
+const app = express()
+
+app.get('/views/my-page', function (req, res) {
+  const json = serialize(<MyPageContent />)
+  res.send(json)
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
+> TODO: Add a few motivating and useful examples of how your project can be used. Spice this up with code blocks and potentially more screenshots and diagrams.
 
 _For more examples and usage, please refer to the [Docs](TODO)._
 
 ## Development setup
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
-
-```sh
-make install
-npm test
-```
+> TODO: Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
 
 ## How to contribute
 
