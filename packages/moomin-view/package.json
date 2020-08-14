@@ -38,8 +38,8 @@
   },
   "peerDependencies": {
     "react": "^16.0.0",
-    "react-native": "^0.60.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "react-native": "^0.60.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -49,13 +49,9 @@
     "@storybook/react": "^5.3.4",
     "@storybook/theming": "^5.3.4",
     "@types/jest": "^24.0.22",
-    "@types/lodash.get": "^4.4.6",
-    "@types/lodash.isequal": "^4.5.5",
     "@types/react": "^16.9.11",
-    "@types/react-redux": "^7.1.5",
     "@types/react-test-renderer": "^16.9.1",
     "@types/storybook-readme": "5.0.4",
-    "@types/styled-components": "5.0.1",
     "ace-builds": "^1.4.7",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
@@ -72,28 +68,21 @@
     "react-dom": "^16.13.1",
     "react-markdown": "^4.2.2",
     "react-native": "^0.63.2",
-    "react-split-pane": "^0.1.89",
-    "react-syntax-highlighter": "^11.0.2",
     "react-test-renderer": "^16.11.0",
     "rollup": "^1.29.1",
     "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-sourcemaps": "^0.6.2",
     "rollup-plugin-terser": "^5.2.0",
     "rollup-plugin-typescript2": "^0.25.3",
     "source-map-explorer": "^2.1.0",
     "source-map-loader": "^0.2.4",
     "storybook-readme": "^5.0.8",
-    "styled-components": "^5.1.0",
     "terser": "^4.3.9",
     "ts-jest": "^25.2.1",
-    "tslint": "^5.20.1",
-    "tslint-config-airbnb": "^5.11.2",
-    "tslint-react": "^4.1.0",
-    "typescript": "^3.7.2",
-    "webpack-cli": "^3.3.10",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-sourcemaps": "^0.6.2"
+    "typescript": "^3.7.2"
   },
   "config": {
     "cz-emoji": {},
@@ -101,5 +90,7 @@
       "path": "cz-emoji"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/react-native": "^0.63.8"
+  }
 }

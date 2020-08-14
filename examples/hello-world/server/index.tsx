@@ -1,16 +1,30 @@
-import express from 'express';
-import { React, Text } from '../../../packages/moomin-server'
+import express from "express";
+import cors from "cors";
+import { React, Text, View } from "../../../packages/moomin-server";
 
 const MyPageContent = () => (
-  <Text>Hello World</Text>
-)
+  <View>
+    <View style={{ background: "pink" }}>
+      <Text>Hello World</Text>
+      <Text>Hello World</Text>
+      <Text>Hello World</Text>
+    </View>
+    <View>
+      <Text>Hello World</Text>
+      <Text>Hello World</Text>
+      <Text>Hello World</Text>
+    </View>
+  </View>
+);
 
-const app = express()
+const app = express();
 
-app.get('/views/my-page', function (req, res) {
-  res.send(<MyPageContent />)
-})
+app.use(cors());
+
+app.get("/views/my-page", function (req, res) {
+  res.send(<MyPageContent />);
+});
 
 app.listen(3000, () => {
-  console.log(`Example app listening at http://localhost:${3000}`)
-})
+  console.log(`Example app listening at http://localhost:${3000}`);
+});

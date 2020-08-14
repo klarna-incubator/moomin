@@ -20,8 +20,9 @@ function useSerializedView(src: string): useSerializedViewRes {
   React.useEffect(() => {
     (async () => {
       try {
+        console.log(src);
         const remote = await fetch(src);
-        setSerializedRemote(remote.json());
+        setSerializedRemote(await remote.json());
         setStatus("success");
       } catch (err) {
         setStatus("error");
@@ -38,6 +39,8 @@ function useSerializedView(src: string): useSerializedViewRes {
 function RemoteView(props: RemoteViewProps) {
   const { src } = props;
   const { status, serializedRemote } = useSerializedView(src);
+
+  console.log(status, serializedRemote);
 
   // todo: add error, loading components
   if (status !== "success") return null;

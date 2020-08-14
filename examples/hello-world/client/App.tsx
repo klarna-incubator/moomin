@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { TestComponent, deserialize } from "moomin-view";
+import { TestComponent, deserialize, RemoteView } from "moomin-view";
 
 const testSerializedPage = {
   type: "View" as const,
@@ -42,6 +42,7 @@ export default function App() {
       {deserialize(testSerializedPage2)}
       <View>{deserialize(testSerializedPage)}</View>
       <Text>{deserialize("foo bar")}</Text>
+      <RemoteView src="http://localhost:3000/views/my-page" />
     </View>
   );
 }
