@@ -1,35 +1,32 @@
 import React from "react";
 import { View, Text } from "react-native";
-// first step, TODO: make working version
-// this version cannot handle fragments
 
-interface Json {
-  type: "view" | "text" | 'frag';
-  props: {
-    [key: string]: any;
-  };
+export interface SerializedElement {
+  type: string;
+  props?: { [key: string]: any };
 }
 
-const map = {
+const NATIVE_COMPONENTS: { [key: string]: any } = {
   view: View,
   text: Text,
   frag: React.Fragment
 };
 
-export function deserialize(json: Json | string | Json[], i?: number): any {
-  if (json === null) return null;
-  if (typeof json === "string") return json;
-  if (Array.isArray(json)) return json.map(deserialize);
+export function deserialize(data: SerializedElement, components: { [key: string]: any } = {}): any {
+  if (data === null) return null;
+  if (typeof data === "string") return data;
+  if (Array.isArray(data)) return data.map(val => deserialize(val, components));
 
-  const Component: any = map[json.type];
+  const Component = components[data.type] || NATIVE_COMPONENTS[data.type];
+  if (!Component) {
+    throw new Error(`unknown component type ${data.type}`)
+  }
 
-  if (!Component) return null;
-
-  const { children = null, ...rest } = json.props;
+  const { children = null, ...props } = data.props || {}
 
   return (
-    <Component {...rest} key={i}>
-      {deserialize(children)}
+    <Component {...props}>
+      {deserialize(children, components)}
     </Component>
   );
 }

@@ -11,10 +11,14 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.React = exports.createElement = exports.Frag = exports.View = exports.Text = void 0;
+exports.React = exports.createElement = exports.useKnownComponent = exports.Frag = exports.View = exports.Text = void 0;
 exports.Text = 'text';
 exports.View = 'view';
 exports.Frag = 'frag';
+function useKnownComponent(key) {
+    return key;
+}
+exports.useKnownComponent = useKnownComponent;
 function createElement(type, props) {
     var children = [];
     for (var _i = 2; _i < arguments.length; _i++) {

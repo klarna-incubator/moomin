@@ -1,48 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { TestComponent, deserialize, RemoteView } from "moomin-view";
+import { StyleSheet, View, Text } from "react-native";
+import { RemoteView } from "moomin-view";
 
-const testSerializedPage = {
-  type: "View" as const,
-  props: {
-    children: {
-      type: "Text" as const,
-      props: {
-        children: "Moomin - Hello World Boilerplate",
-      },
-    },
-  },
-};
-
-const testSerializedPage2 = {
-  type: "View" as const,
-  props: {
-    children: [
-      {
-        type: "Text" as const,
-        props: {
-          children: "Test 2",
-        },
-      },
-      {
-        type: "Text" as const,
-        props: {
-          children: "Test 2",
-        },
-      },
-    ],
-  },
-};
+const Header = ({ color, children }) => (
+  <Text style={{ color, fontSize: 22 }}>{children}</Text>
+)
 
 export default function App() {
-  console.log(deserialize(testSerializedPage));
   return (
     <View style={styles.container}>
-      <TestComponent />
-      {deserialize(testSerializedPage2)}
-      <View>{deserialize(testSerializedPage)}</View>
-      <Text>{deserialize("foo bar")}</Text>
-      <RemoteView src="http://localhost:3000/views/my-page" />
+      <RemoteView key="page1" src="http://localhost:3000/views/page1" />
+      <Text>----------</Text>
+      <RemoteView key="page2" src="http://localhost:3000/views/page2" components={{ Header }} />
     </View>
   );
 }
