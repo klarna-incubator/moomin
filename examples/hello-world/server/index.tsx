@@ -1,21 +1,12 @@
-import express from "express";
-import cors from "cors";
-import { React, Text, View } from "../../../packages/moomin-server";
+import express from 'express';
+import cors from 'cors';
+import { React, View, Text } from '../../../packages/moomin-server'
 
 const MyPageContent = () => (
-  <View>
-    <View style={{ background: "pink" }}>
-      <Text>Hello World</Text>
-      <Text>Hello World</Text>
-      <Text>Hello World</Text>
-    </View>
-    <View>
-      <Text>Hello World</Text>
-      <Text>Hello World</Text>
-      <Text>Hello World</Text>
-    </View>
+  <View style={{ background: 'pink' }}>
+    <Text>Hello World</Text>
   </View>
-);
+)
 
 const app = express();
 
