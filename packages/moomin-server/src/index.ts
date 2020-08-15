@@ -1,15 +1,20 @@
+export type ElementType = any;
+
+export interface Element {
+  type: ElementType;
+  props?: { [key: string]: any };
+}
+
 export const Text = 'text';
 export const View = 'view';
 export const Frag = 'frag';
 
-interface Element {
-  type: any;
-  props?: { [key: string]: any };
-  content?: Element | Element[];
+export function useKnownComponent(key: string): ElementType {
+  return key;
 }
 
 export function createElement(
-  type: any,
+  type: ElementType,
   props: { [key: string]: any },
   ...children: Element[]
 ): Element {

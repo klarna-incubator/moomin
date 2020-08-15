@@ -2,7 +2,9 @@ import React from "react";
 import { deserialize } from "./deserialize";
 
 interface RemoteViewProps {
-  src: string;
+  src: string
+  extraProps?: object
+  components?: object
 }
 
 interface useSerializedViewRes {
@@ -37,15 +39,13 @@ function useSerializedView(src: string): useSerializedViewRes {
 }
 
 function RemoteView(props: RemoteViewProps) {
-  const { src } = props;
+  const { src, components } = props;
   const { status, serializedRemote } = useSerializedView(src);
-
-  console.log(status, serializedRemote);
 
   // todo: add error, loading components
   if (status !== "success") return null;
 
-  return deserialize(serializedRemote);
+  return deserialize(serializedRemote, components);
 }
 
 export default RemoteView;

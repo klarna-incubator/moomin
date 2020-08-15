@@ -20,7 +20,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "sync": "rm -rf node_modules/moomin-view/lib && cp -r ../../../packages/moomin-view/lib ./node_modules/moomin-view"
   },
   "private": true
 }
