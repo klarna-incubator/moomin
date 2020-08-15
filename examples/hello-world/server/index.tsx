@@ -4,11 +4,11 @@ import { React, View, Text } from '../../../packages/moomin-server'
 
 const MyPageContent = () => (
   <>
-    <View style={{ background: 'pink' }}>
-      <Text>Hello World</Text>
+    <View>
+      <Text style={{ color: 'pink' }}>Hello World</Text>
     </View>
-    <View style={{ background: 'yellow' }}>
-      <Text>1234567890</Text>
+    <View>
+      <Text style={{ color: 'yellow' }}>1234567890</Text>
     </View>
   </>
 )

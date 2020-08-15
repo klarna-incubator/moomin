@@ -4,15 +4,16 @@ import { View, Text } from "react-native";
 // this version cannot handle fragments
 
 interface Json {
-  type: "View" | "Text";
+  type: "view" | "text" | 'frag';
   props: {
     [key: string]: any;
   };
 }
 
 const map = {
-  View,
-  Text,
+  view: View,
+  text: Text,
+  frag: React.Fragment
 };
 
 export function deserialize(json: Json | string | Json[], i?: number): any {
