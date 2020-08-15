@@ -3,9 +3,14 @@ import cors from 'cors';
 import { React, View, Text } from '../../../packages/moomin-server'
 
 const MyPageContent = () => (
-  <View style={{ background: 'pink' }}>
-    <Text>Hello World</Text>
-  </View>
+  <>
+    <View style={{ background: 'pink' }}>
+      <Text>Hello World</Text>
+    </View>
+    <View style={{ background: 'yellow' }}>
+      <Text>1234567890</Text>
+    </View>
+  </>
 )
 
 const app = express();
