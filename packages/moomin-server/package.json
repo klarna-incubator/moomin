@@ -6,9 +6,7 @@
   "scripts": {
     "build": "rm -rf lib && tsc"
   },
-  "keywords": [],
-  "author": "Thanish Nizam <mnmtanish@gmail.com> (https://thanish.me/)",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "typescript": "^3.9.7"
   }
