@@ -11,10 +11,10 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.React = exports.createElement = exports.Fragment = exports.View = exports.Text = void 0;
-exports.Text = 'Text';
-exports.View = 'View';
-exports.Fragment = 'Fragment';
+exports.React = exports.createElement = exports.Frag = exports.View = exports.Text = void 0;
+exports.Text = 'text';
+exports.View = 'view';
+exports.Frag = 'frag';
 function createElement(type, props) {
     var children = [];
     for (var _i = 2; _i < arguments.length; _i++) {
@@ -28,7 +28,7 @@ function createElement(type, props) {
         return type(withKids);
     }
     if (!type) {
-        return { type: exports.Fragment, props: withKids };
+        return { type: exports.Frag, props: withKids };
     }
     throw new Error("unsupported component type: " + type);
 }

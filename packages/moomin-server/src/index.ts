@@ -1,6 +1,6 @@
-export const Text = 'Text';
-export const View = 'View';
-export const Fragment = 'Fragment';
+export const Text = 'text';
+export const View = 'view';
+export const Frag = 'frag';
 
 interface Element {
   type: any;
@@ -21,7 +21,7 @@ export function createElement(
     return type(withKids);
   }
   if (!type) {
-    return { type: Fragment, props: withKids };
+    return { type: Frag, props: withKids };
   }
   throw new Error(`unsupported component type: ${type}`);
 }
