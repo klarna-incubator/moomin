@@ -16,34 +16,80 @@ Moomin allows parts of your React Native app to de loaded from your server. This
 Loading a view from the server is as simple as adding a component on your client. Moomin will fetch the view definition from the given source URL and render it on the client.
 
 ```tsx
-import { Moomin } from 'moomin-client'
+// App.tsx
+import React from "react";
+import { StyleSheet, View, Text } from "react-native";
+import { RemoteView } from "moomin-view";
 
-// ! client
-const MyPage = () => (
-  <Title>My Page Title</Title>
-  <Moomin src="http://myapp.app/views/my-page" />
+const Header = ({ color, children }) => (
+  <Text style={{ color, fontSize: 22 }}>{children}</Text>
 )
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <RemoteView key="page1" src="http://localhost:3000/views/page1" />
+      <Text>----------</Text>
+      <RemoteView key="page2" src="http://localhost:3000/views/page2" components={{ Header }} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
 ```
 
 On the server side, you can use JSX to define your views.
 
 ```tsx
+// server.tsx
 import express from 'express';
-import { React, Text } from 'moomin-server'
+import cors from 'cors';
+import { React, View, Text, useKnownComponent } from 'moomin-server'
 
-const MyPageContent = () => (
-  <Text>Hello World</Text>
+const Page1 = () => (
+  <>
+    <View>
+      <Text style={{ color: 'pink' }}>Hello World</Text>
+    </View>
+    <View>
+      <Text style={{ color: 'green' }}>1234567890</Text>
+    </View>
+  </>
 )
 
-const app = express()
+const Page2 = () => {
+  const Header = useKnownComponent('Header')
+  return (
+    <View>
+      <Header color="red">Header 1</Header>
+      <Text style={{ color: 'blue' }}>Page Content</Text>
+    </View>
+  )
+}
 
-app.get('/views/my-page', function (req, res) {
-  res.send(<MyPageContent />)
-})
+const app = express();
+
+app.use(cors());
+
+app.get("/views/page1", function (req, res) {
+  res.send(<Page1 />);
+});
+
+app.get("/views/page2", function (req, res) {
+  res.send(<Page2 />);
+});
 
 app.listen(3000, () => {
-  console.log(`Example app listening at http://localhost:${3000}`)
-})
+  console.log(`Example app listening at http://localhost:${3000}`);
+});
+
 ```
 
 > TODO: Add a few motivating and useful examples of how your project can be used. Spice this up with code blocks and potentially more screenshots and diagrams.
