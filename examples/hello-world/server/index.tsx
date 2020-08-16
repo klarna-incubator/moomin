@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { React, View, Text, useKnownComponent } from '../../../packages/moomin-server'
+import { React, View, Text, useKnownComponent } from 'moomin-server'
 
 const Page1 = () => (
   <>
