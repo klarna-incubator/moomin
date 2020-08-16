@@ -50,6 +50,6 @@ app.get("/views/page2", function (req, res) {
   res.send(<Page2 />);
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
 });
