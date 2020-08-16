@@ -320,6 +320,11 @@ mime@1.6.0:
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
   integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
 
+moomin-server@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/moomin-server/-/moomin-server-0.1.1.tgz#488f83e8c67c8b34c8b423e1a56ab0798801666e"
+  integrity sha512-RKtmVCwi3ALr+D2cW0WREDWLwU7oeheBHBslEMEyaiWDxAbQPHLiVjSX9SYNmEM4tBQr4PDkBo7JMIpBeuxcvQ==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"

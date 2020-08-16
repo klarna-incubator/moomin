@@ -1,27 +1,27 @@
-import express from 'express';
-import cors from 'cors';
-import { React, View, Text, useKnownComponent } from '../../../packages/moomin-server'
+import express from "express";
+import cors from "cors";
+import { React, View, Text, useKnownComponent } from "moomin-server";
 
 const Page1 = () => (
   <>
     <View>
-      <Text style={{ color: 'pink' }}>Hello World</Text>
+      <Text style={{ color: "pink" }}>Hello World</Text>
     </View>
     <View>
-      <Text style={{ color: 'green' }}>1234567890</Text>
+      <Text style={{ color: "green" }}>1234567890</Text>
     </View>
   </>
-)
+);
 
 const Page2 = () => {
-  const Header = useKnownComponent('Header')
+  const Header = useKnownComponent("Header");
   return (
     <View>
       <Header color="red">Header 1</Header>
-      <Text style={{ color: 'blue' }}>Page Content</Text>
+      <Text style={{ color: "blue" }}>Page Content</Text>
     </View>
-  )
-}
+  );
+};
 
 const app = express();
 
