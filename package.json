@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node index.tsx"
+    "start": "node index.js",
+    "start:dev": "ts-node index.tsx",
+    "build": "tsc"
   },
   "dependencies": {
     "cors": "^2.8.5",
