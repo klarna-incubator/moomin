@@ -1271,6 +1271,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-native@^0.63.8":
+  version "0.63.8"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.8.tgz#73ec087122c64c309eeaf150b565b8d755f0fb1f"
+  integrity sha512-QRwGFRTyGafRVTUS+0GYyJrlpmS3boyBaFI0ULSc+mh/lQNxrzbdQvoL2k5X7+t9hxyqA4dTQAlP6l0ir/fNJQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-native@~0.62.13":
   version "0.62.18"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.62.18.tgz#ad63691e7c44edef2beeb6af52b2eb942c3ed8a1"
@@ -3892,10 +3899,12 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
-moomin-view@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/moomin-view/-/moomin-view-0.1.0.tgz#417aa2a61958432a64bbdc8d248817aed56ced5b"
-  integrity sha512-qEEbk9kFNcmXvTgyNq5MLYNKiAmfKeQ3ZcvQ+GhR0NVvJIC8w+J1i7mRgqklwTV21D1Jl7wO3u07PzBgByt9OA==
+moomin-view@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/moomin-view/-/moomin-view-0.1.1.tgz#c0b2d86e51d4753cffaff1da9f94ee2fe9546045"
+  integrity sha512-TrBl6fNBj2ukdgz47yQ0MAVzJI5NWQL26Yh0x0FY9pY+HA7kVMwEchC/TZBmStqapQJQr+pCIyVQLHOYKEx6zg==
+  dependencies:
+    "@types/react-native" "^0.63.8"
 
 ms@2.0.0:
   version "2.0.0"

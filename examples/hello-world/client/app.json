@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "Moomin Demo App",
+    "icon": "./resources/app-icon.png",
+    "version": "1.0.0",
+    "slug": "moomin-demo-app",
+    "ios": {
+      "bundleIdentifier": "com.klarna.moomindemoapp",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.klarna.moomindemoapp",
+      "versionCode": 1
+    }
+  }
+}
