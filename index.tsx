@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import { React, View, Text, useKnownComponent } from "moomin-server";
 
+const PORT = process.env.PORT || 3000;
+
 const Page1 = () => (
   <>
     <View>
@@ -49,5 +51,5 @@ app.get("/views/page2", function (req, res) {
 });
 
 app.listen(3000, () => {
-  console.log(`Example app listening at http://localhost:${3000}`);
+  console.log(`Example app listening at http://localhost:${PORT}`);
 });
