@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { RemoteView } from "moomin-view";
 
-const remote = "https://moomin-demo.herokuapp.com/";
+const remote = "https://moomin-demo.herokuapp.com";
 
 const Header = ({ color, children }) => (
   <Text style={{ color, fontSize: 106 }}>{children}</Text>

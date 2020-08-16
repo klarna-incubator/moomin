@@ -38,7 +38,12 @@ const Page2 = () => {
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: true,
+  })
+);
 
 app.get("/views/page1", function (req, res) {
   res.send(<Page1 />);
