@@ -1,6 +1,7 @@
-import express from "express";
 import cors from "cors";
-import { React, View, Text, useKnownComponent } from "moomin-server";
+import express from "express";
+import { Image, React, Text, useKnownComponent, View } from "moomin-server";
+import path from "path";
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,6 +21,7 @@ const Page2 = () => {
   const SubTitle = useKnownComponent("SubTitle");
   return (
     <View style={{ display: "flex", flex: 1, justifyContent: "center" }}>
+      <Image style={{ height: 128, width: 128 }} src="/logo.png" />
       <Header color="#ffb3c7">Moomin</Header>
       <SubTitle color="#ffffffbb">
         Server side rendering for React Native applications.
@@ -34,6 +36,8 @@ const Page2 = () => {
 };
 
 const app = express();
+
+app.use(express.static(path.join(process.cwd(), "public")));
 
 app.use(
   cors({
