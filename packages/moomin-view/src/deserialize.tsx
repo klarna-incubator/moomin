@@ -33,5 +33,9 @@ export function deserialize(
 
   const { children = null, ...props } = data.props || {};
 
+  if (!children || !children.length) {
+    return <Component {...props} />;
+  }
+
   return <Component {...props}>{deserialize(children, components)}</Component>;
 }
