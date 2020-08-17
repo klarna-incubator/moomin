@@ -11,9 +11,10 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.React = exports.createElement = exports.useKnownComponent = exports.Frag = exports.View = exports.Text = void 0;
+exports.React = exports.createElement = exports.useKnownComponent = exports.Frag = exports.Image = exports.View = exports.Text = void 0;
 exports.Text = 'text';
 exports.View = 'view';
+exports.Image = 'image';
 exports.Frag = 'frag';
 function useKnownComponent(key) {
     return key;

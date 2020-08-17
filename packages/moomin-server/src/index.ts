@@ -7,6 +7,7 @@ export interface Element {
 
 export const Text = 'text';
 export const View = 'view';
+export const Image = 'image';
 export const Frag = 'frag';
 
 export function useKnownComponent(key: string): ElementType {
