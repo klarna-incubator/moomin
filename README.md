@@ -5,34 +5,38 @@
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
 
-> TODO: rewrite this part
+With Moomin, you can load parts of your React Native app UI from the backend. This makes is easier and faster to update parts of the UI.
 
-Moomin allows parts of your React Native app to de loaded from your server. This makes pushing updates, fixing bugs or running A/B tests as simple as making changes to a web app rendered on the server. It also supports:
- - Make apps extendable by safely embedding native UI from third party plugins.
- - Develop apps by teams distributed across multiple organizations, or make it decentralized.
+**What can you do with Moomin?**
 
-## Usage example
+ - Push UI updates and bug fixes immediately
+ - Offload UI related logic to the backend
+ - Support embedding third party UI elements
+ - Distribute developing and deploying the app
 
-Loading a view from the server is as simple as adding a component on your client. Moomin will fetch the view definition from the given source URL and render it on the client.
+## Getting Started:
+
+Install `moomin-view` on your React Native app.
+
+```shell
+yarn add moomin-view
+```
+
+Import the `RemoteView` component and use it with the backend URL for the view.
 
 ```tsx
 // App.tsx
-import React from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { RemoteView } from "moomin-view";
-
-const Header = ({ color, children }) => (
-  <Text style={{ color, fontSize: 22 }}>{children}</Text>
-)
+import React from "react"
+import { StyleSheet, View } from "react-native"
+import { RemoteView } from "moomin-view"
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <RemoteView key="page1" src="http://localhost:3000/views/page1" />
-      <Text>----------</Text>
-      <RemoteView key="page2" src="http://localhost:3000/views/page2" components={{ Header }} />
+      <Text>My Page</Text>
+      <RemoteView src="http://localhost:3000/views/my-page" />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -41,64 +45,42 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },
-});
+  }
+})
 ```
 
-On the server side, you can use JSX to define your views.
+On the server side, install `moomin-server` and use JSX/TSX to define your views.
 
 ```tsx
 // server.tsx
-import express from 'express';
-import cors from 'cors';
-import { React, View, Text, useKnownComponent } from 'moomin-server'
+import express from 'express'
+import { React, View, Text, Image } from 'moomin-server'
 
-const Page1 = () => (
-  <>
-    <View>
-      <Text style={{ color: 'pink' }}>Hello World</Text>
-    </View>
-    <View>
-      <Text style={{ color: 'green' }}>1234567890</Text>
-    </View>
-  </>
+const MyPage = () => (
+  <View>
+    <Image source={{ uri: 'https://moomin.js.org/logo.png' }} />
+    <Text style={{ color: 'blue' }}>Page Content</Text>
+  </View>
 )
 
-const Page2 = () => {
-  const Header = useKnownComponent('Header')
-  return (
-    <View>
-      <Header color="red">Header 1</Header>
-      <Text style={{ color: 'blue' }}>Page Content</Text>
-    </View>
-  )
-}
+const app = express()
 
-const app = express();
-
-app.use(cors());
-
-app.get("/views/page1", function (req, res) {
-  res.send(<Page1 />);
-});
-
-app.get("/views/page2", function (req, res) {
-  res.send(<Page2 />);
-});
+app.get("/views/my-page", function (req, res) {
+  res.send(<MyPage />)
+})
 
 app.listen(3000, () => {
-  console.log(`Example app listening at http://localhost:${3000}`);
-});
-
+  console.log(`Server listening at http://localhost:${3000}`)
+})
 ```
-
-> TODO: Add a few motivating and useful examples of how your project can be used. Spice this up with code blocks and potentially more screenshots and diagrams.
 
 _For more examples and usage, please refer to the [Docs](TODO)._
 
 ## Development setup
 
-> TODO: Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+Moomin is still in the early development process, this includes how Moomin is developed itself. Therefore it can change fast and without any notice. So far, this is how we develop Moomin:
+ - All packages npm packages are available inside `packages`, these packages are published manually
+ - Until we add sufficient tests, we use the example app to test whether Moomin works as expected
 
 ## How to contribute
 
