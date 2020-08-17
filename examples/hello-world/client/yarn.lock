@@ -3899,10 +3899,10 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
-moomin-view@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/moomin-view/-/moomin-view-0.1.3.tgz#601dc9b9f387ff7683fcf1e8d399b80af8b87cdb"
-  integrity sha512-EQmYtFYPRRZ/Y+HUOYZicPbuuaUtJY5/K4Ja7XnQr+WKCJYf/igqTRgDYkZgABEhJYt3hmLmjjKX80HmsSq+5g==
+moomin-view@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/moomin-view/-/moomin-view-0.1.5.tgz#9f3f409754d11523050267a9e5c34f5e3b9ca9a7"
+  integrity sha512-3MDcPwpif8jZoa/XjEY5mzHqUtP1rta35sh8EoU1TBg1Zw4T/aLl6GMIzPHQ90aD7VkVRabTd7mP7VR8by7FOQ==
   dependencies:
     "@types/react-native" "^0.63.8"
 
