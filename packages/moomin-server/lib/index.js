@@ -29,7 +29,10 @@ function createElement(type, props) {
         return { type: type, props: withKids };
     }
     if (typeof type === 'function') {
-        return type(withKids);
+        var withKey = withKids.key
+            ? withKids
+            : __assign(__assign({}, withKids), { key: Math.random().toString() });
+        return type(withKey);
     }
     if (!type) {
         return { type: exports.Frag, props: withKids };

@@ -18,12 +18,15 @@ export function createElement(
   props: { [key: string]: any },
   ...children: Element[]
 ): Element {
-  const withKids = props ? { ...props, children } : { children };
+  const withKids: any = props ? { ...props, children } : { children };
   if (typeof type === 'string') {
     return { type, props: withKids };
   }
   if (typeof type === 'function') {
-    return type(withKids);
+    const withKey = withKids.key
+      ? withKids
+      : { ...withKids, key: Math.random().toString() };
+    return type(withKey);
   }
   if (!type) {
     return { type: Frag, props: withKids };
