@@ -21,7 +21,10 @@ const Page2 = () => {
   const SubTitle = useKnownComponent("SubTitle");
   return (
     <View style={{ display: "flex", flex: 1, justifyContent: "center" }}>
-      <Image style={{ height: 128, width: 128 }} src="/logo.png" />
+      <Image
+        style={{ height: 128, width: 128 }}
+        source={{ uri: "https://moomin-demo.herokuapp.com/logo.png" }}
+      />
       <Header color="#ffb3c7">Moomin</Header>
       <SubTitle color="#ffffffbb">
         Server side rendering for React Native applications.
