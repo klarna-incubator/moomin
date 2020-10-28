@@ -5,25 +5,25 @@ export interface Element {
   props?: { [key: string]: any };
 }
 
-export const Text = 'text';
-export const View = 'view';
-export const Image = 'image';
-export const Frag = 'frag';
+export const Text = "text";
+export const View = "view";
+export const Image = "image";
+export const Frag = "frag";
 
 export function useKnownComponent(key: string): ElementType {
   return key;
 }
 
 export function createElement(
-  type: ElementType,
-  props: { [key: string]: any },
+  type?: ElementType,
+  props?: { [key: string]: any },
   ...children: Element[]
 ): Element {
   const withKids: any = props ? { ...props, children } : { children };
-  if (typeof type === 'string') {
+  if (typeof type === "string") {
     return { type, props: withKids };
   }
-  if (typeof type === 'function') {
+  if (typeof type === "function") {
     const withKey = withKids.key
       ? withKids
       : { ...withKids, key: Math.random().toString() };
