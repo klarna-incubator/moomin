@@ -4,10 +4,14 @@
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "rm -rf lib && tsc"
+    "build": "rm -rf lib && tsc",
+    "test": "jest"
   },
   "license": "Apache-2.0",
   "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "jest": "26.6.1",
+    "ts-jest": "^26.4.3",
     "typescript": "^3.9.7"
   }
 }
